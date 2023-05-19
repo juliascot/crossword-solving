@@ -17,3 +17,5 @@ If at any point you figure out one of the unsolved clues, make sure to enter it 
 the message into the box (as it will have changed).
 
 Happy solving! Now if my friend Daniel ever sends you a highly specific crossword creation, you should be able to solve it in a way he did not intend! 😎
+
+Also, all word lists were taken from various places on the internet; I just assembled them in a way that worked for my code
