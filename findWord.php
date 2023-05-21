@@ -10,29 +10,30 @@ ini_set('max_execution_time', '0');
         }
     }
 
-    $array1 = setArray("oneLetterWords.txt");
-    $array2 = setArray("mod2LetterWords.txt");
-    $array3 = setArray("3_letter_words.txt");
-    $array4 = setArray("mod4LetterWords.txt");
-    $array5 = setArray("mod5LetterWords.txt");
-    $array6 = setArray("sixLetterWords.txt");
-    $array7 = setArray("sevenLetterWords.txt");
-    $array8 = setArray("mod8LetterWords.txt");
-    $array9 = setArray("nineLetterWords.txt");
-    $array10 = setArray("tenLetterWords.txt");
-    $array11 = setArray("11letwords.txt");
+    $array1 = setArray("text-files/oneLetterWords.txt");
+    $array2 = setArray("text-files/mod2LetterWords.txt");
+    $array3 = setArray("text-files/3_letter_words.txt");
+    $array4 = setArray("text-files/mod4LetterWords.txt");
+    $array5 = setArray("text-files/mod5LetterWords.txt");
+    $array6 = setArray("text-files/sixLetterWords.txt");
+    $array7 = setArray("text-files/sevenLetterWords.txt");
+    $array8 = setArray("text-files/mod8LetterWords.txt");
+    $array9 = setArray("text-files/nineLetterWords.txt");
+    $array10 = setArray("text-files/tenLetterWords.txt");
+    $array11 = setArray("text-files/11letwords.txt");
+    // mainArrays = {setArray("oneLetterWords.txt"), ...}
 
     $bigarray1 = $array1;
-    $bigarray2 = setArray("big2lets.txt");
-    $bigarray3 = setArray("big3lets.txt");
-    $bigarray4 = setArray("big4lets.txt");
-    $bigarray5 = setArray("big5lets.txt");
-    $bigarray6 = setArray("big6lets.txt");
-    $bigarray7 = setArray("big7lets.txt");
-    $bigarray8 = setArray("big8lets.txt");
-    $bigarray9 = setArray("big9lets.txt");
-    $bigarray10 = setArray("big10lets.txt");
-    $bigarray11 = setArray("big11lets.txt");
+    $bigarray2 = setArray("text-files/big2lets.txt");
+    $bigarray3 = setArray("text-files/big3lets.txt");
+    $bigarray4 = setArray("text-files/big4lets.txt");
+    $bigarray5 = setArray("text-files/big5lets.txt");
+    $bigarray6 = setArray("text-files/big6lets.txt");
+    $bigarray7 = setArray("text-files/big7lets.txt");
+    $bigarray8 = setArray("text-files/big8lets.txt");
+    $bigarray9 = setArray("text-files/big9lets.txt");
+    $bigarray10 = setArray("text-files/big10lets.txt");
+    $bigarray11 = setArray("text-files/big11lets.txt");
 
 
 // takes in dot versions of words and the hash, then translates the information to call the appropriate function
@@ -137,7 +138,7 @@ function findWord0($hash, $array, $numChars, $bigArray) {
             return $bigArray[$i];
         }
     }
-    if ($numChars <= 4) {
+    if ($numChars <= 5) {
         return combinations($numChars, "", $hash);
     }
     return;
@@ -176,7 +177,7 @@ function findWord2($hash, $list1, $list2, $list3, $biglist1, $biglist2, $biglist
             }
         }
     }
-    if ($numChars1 <= 1 || $numChars2 <= 1 || $numChars3 <= 1) {
+    if ($numChars1 == 1 || $numChars2 == 1 || $numChars3 == 1) {
         for ($i=0; $i<count($biglist1); $i++) {
             for ($j=0; $j<count($biglist2); $j++) {
                 for ($k=0; $k<count($biglist3); $k++) {
@@ -190,6 +191,8 @@ function findWord2($hash, $list1, $list2, $list3, $biglist1, $biglist2, $biglist
     }
     return;
 }
+
+// hash function to simplify md5(strtoupper())
 
 function findWordHelp($word, $hash) {
     $numSpaces = substr_count($word, ' ');
