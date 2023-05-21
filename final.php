@@ -39,9 +39,9 @@ foreach ($unsolved as $item) {
     $name = $item['numid'].$item['direction'];
     $length = $item['length'];
     echo '<span id="' . $name . '-entry"><p>' . $name . ' <span id="' . $name . '">' . $length . "   " . '</span><button onclick="deleteLine(\'' . $name . '-entry\')">Delete</button></p></span>';
-    // echo ' <button onclick="deleteLine(\'' . $name . '\')">Delete</button></p>';
 }
 
+//store unsolved in js array
 $string = "<script>unsolved = [";
 $string1 = "lengths = [";
 foreach ($unsolved as $item) {
@@ -51,16 +51,20 @@ foreach ($unsolved as $item) {
 $string = substr($string, 0, strlen($string)-2) . '];' . "\n";
 $string1 = substr($string1, 0, strlen($string1)-2) . '];' . "\n";
 echo $string . $string1 . "</script> \n";
+?>
 
-echo "<br><h2>Modify Message</h2>";
-echo "<p>Copy and paste message from above, then change words and click submit.</p>";
-echo '<textarea id="guesses" name="guesses" rows="10" cols="51"></textarea><br>
+<br>
+<h2>Modify Message</h2>
+<p>Copy and paste message from above, then change words and click submit.</p>
+<textarea id="guesses" name="guesses" rows="10" cols="51"></textarea><br>
 <button id="submitButton" onclick="showInput()">Submit</button>
 <p id="preview"></p>
 
+
+<!--This section allows the user to change the message and then inserts appropriate letters into the unsolved-->
 <script>
-' 
-    . 'function deleteLine(id) {
+ 
+    function deleteLine(id) {
         var element = document.getElementById(id);
         if (element) {
             element.remove();
@@ -71,11 +75,11 @@ echo '<textarea id="guesses" name="guesses" rows="10" cols="51"></textarea><br>
             unsolved.splice(index, 1);
             lengths.splice(index, 1);
         }
-    }'
+    }
 
-    . "let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];"
+    let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     
-    . 'function findIndex(letter) {
+    function findIndex(letter) {
         for (let i=0; i<alphabet.length; i++) {
             if (alphabet[i] == letter) {
                 return i;
@@ -208,11 +212,3 @@ echo '<textarea id="guesses" name="guesses" rows="10" cols="51"></textarea><br>
     }
 
 </script>
-
-';
-
-
-//re copy paste $html, changing the checkhash function to always return true
-//delete solved item from list
-//figure out how to deal with more than one 
-?>
