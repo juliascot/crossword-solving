@@ -23,23 +23,22 @@ ini_set('max_execution_time', '0');
     $array11 = setArray("11letwords.txt");
 
     $bigarray1 = $array1;
-    $bigArray2 = setArray("big2lets.txt");
-    $bigArray3 = setArray("big3lets.txt");
-    $bigArray4 = setArray("big4lets.txt");
-    $bigArray5 = setArray("big5lets.txt");
-    $bigArray6 = setArray("big6lets.txt");
-    $bigArray7 = setArray("big7lets.txt");
-    $bigArray8 = setArray("big8lets.txt");
-    $bigArray9 = setArray("big9lets.txt");
-    $bigArray10 = setArray("big10lets.txt");
-    $bigArray11 = setArray("big11lets.txt");
+    $bigarray2 = setArray("big2lets.txt");
+    $bigarray3 = setArray("big3lets.txt");
+    $bigarray4 = setArray("big4lets.txt");
+    $bigarray5 = setArray("big5lets.txt");
+    $bigarray6 = setArray("big6lets.txt");
+    $bigarray7 = setArray("big7lets.txt");
+    $bigarray8 = setArray("big8lets.txt");
+    $bigarray9 = setArray("big9lets.txt");
+    $bigarray10 = setArray("big10lets.txt");
+    $bigarray11 = setArray("big11lets.txt");
 
 
 // takes in dot versions of words and the hash, then translates the information to call the appropriate function
 // every letter will be written as a dot by the user (with spaces intact)
 function findWord($word, $hash) {
     $numSpaces = substr_count($word, ' ');
-    $functionName = "findWord" . $numSpaces;
     global $array1, $array2, $array3, $array4, $array5, $array6, $array7, $array8, $array9, $array10, $array11;
     global $bigarray2, $bigarray3, $bigarray4, $bigarray5, $bigarray6, $bigarray7, $bigarray8, $bigarray9, $bigarray10, $bigarray11;
     $bigarray1 = $array1;
@@ -50,7 +49,7 @@ function findWord($word, $hash) {
         }
         $arrayName = "array" . $numDots;
         $bigArray = "big" . $arrayName;
-        return $functionName($hash, $$arrayName, $numDots, $$bigArray);
+        return findWord0($hash, $$arrayName, $numDots, $$bigArray);
     }
     if ($numSpaces == 1) {
         $numDots1 = strpos($word, " ");
@@ -62,7 +61,7 @@ function findWord($word, $hash) {
         $arrayName2 = "array" . $numDots2;
         $bigArrayName1 = "big" . $arrayName1;
         $bigArrayName2 = "big" . $arrayName2;
-        return $functionName($hash, $$arrayName1, $$arrayName2, $$bigArrayName1, $$bigArrayName2, $numDots1, $numDots2);
+        return findWord1($hash, $$arrayName1, $$arrayName2, $$bigArrayName1, $$bigArrayName2, $numDots1, $numDots2);
     }
     if ($numSpaces == 2) {
         $numDots1 = strpos($word, " ");
@@ -77,7 +76,7 @@ function findWord($word, $hash) {
         $bigArrayName1 = "big" . $arrayName1;
         $bigArrayName2 = "big" . $arrayName2;
         $bigArrayName3 = "big" . $arrayName3;
-        return $functionName($hash, $$arrayName1, $$arrayName2, $$arrayName3, $$bigArrayName1, $$bigArrayName2, $$bigArrayName3, $numDots1, $numDots2, $numDots3);
+        return findWord2($hash, $$arrayName1, $$arrayName2, $$arrayName3, $$bigArrayName1, $$bigArrayName2, $$bigArrayName3, $numDots1, $numDots2, $numDots3);
     }
     return;
 }
