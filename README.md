@@ -6,7 +6,7 @@ This is a service built to crack my friend Daniel's hash-based crosswords (can b
 PHP
 
 ## Instructions
-Start by opening the main.php. Enter in the information from the example crossword html file (hashes in source code) and example pdf (lengths of words). It may take 
+Start by opening the main.php. Enter in the information from the example crossword html file from Daniel's github (hashes in source code) and example pdf (lengths of words). It may take 
 up to five minutes for the guesser to go through all of the word lists for any given word.
 
 Once all clues are entered in, copy and paste the source code from the crossword html file and hit enter.
