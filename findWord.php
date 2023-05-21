@@ -2,225 +2,41 @@
 
 ini_set('max_execution_time', '0');
 
-//set up arrays of different length words
-
-    //array1
-    $onelw = "oneLetterWords.txt";
-
-    $openOne = @fopen($onelw, 'r'); 
-
-    if ($openOne) {
-    $array1 = explode(", ", fread($openOne, filesize($onelw)));
+// set up arrays of different length words
+    function setArray($fileName) {
+        $open = @fopen($fileName, 'r');
+        if ($open) {
+            return explode(", ", fread($open, filesize($fileName)));
+        }
     }
 
-    //array2
-    $twolw = "mod2LetterWords.txt";
+    $array1 = setArray("oneLetterWords.txt");
+    $array2 = setArray("mod2LetterWords.txt");
+    $array3 = setArray("3_letter_words.txt");
+    $array4 = setArray("mod4LetterWords.txt");
+    $array5 = setArray("mod5LetterWords.txt");
+    $array6 = setArray("sixLetterWords.txt");
+    $array7 = setArray("sevenLetterWords.txt");
+    $array8 = setArray("mod8LetterWords.txt");
+    $array9 = setArray("nineLetterWords.txt");
+    $array10 = setArray("tenLetterWords.txt");
+    $array11 = setArray("11letwords.txt");
 
-    $openTwo = @fopen($twolw, 'r'); 
-
-    if ($openTwo) {
-    $array2 = explode(", ", fread($openTwo, filesize($twolw)));
-    }
-
-    //array3
-    $threelw = "3_letter_words.txt";
-
-    $openThree = @fopen($threelw, 'r'); 
-
-    if ($openThree) {
-    $array3 = explode(", ", fread($openThree, filesize($threelw)));
-    }
-
-    //array4
-    $fourlw = "mod4LetterWords.txt";
-
-    $openFour = @fopen($fourlw, 'r'); 
-
-    if ($openFour) {
-    $array4 = explode(", ", fread($openFour, filesize($fourlw)));
-    }
-
-    //array5
-    $fivelw = "mod5LetterWords.txt";
-
-    $openFive = @fopen($fivelw, 'r'); 
-
-    if ($openFive) {
-    $array5 = explode(", ", fread($openFive, filesize($fivelw)));
-    }
-
-    //array6
-    $sixlw = "sixLetterWords.txt";
-
-    $openSix = @fopen($sixlw, 'r'); 
-
-    if ($openSix) {
-    $array6 = explode(", ", fread($openSix, filesize($sixlw)));
-    }
-
-    //array7
-    $sevenlw = "sevenLetterWords.txt";
-
-    $openSeven = @fopen($sevenlw, 'r'); 
-
-    if ($openSeven) {
-    $array7 = explode(", ", fread($openSeven, filesize($sevenlw)));
-    }
-
-    //array8
-    $eightlw = "mod8LetterWords.txt";
-
-    $openEight = @fopen($eightlw, 'r'); 
-
-    if ($openEight) {
-    $array8 = explode(", ", fread($openEight, filesize($eightlw)));
-    }
-
-    //array9
-    $ninelw = "nineLetterWords.txt";
-
-    $openNine = @fopen($ninelw, 'r'); 
-
-    if ($openNine) {
-    $array9 = explode(", ", fread($openNine, filesize($ninelw)));
-    }
-
-    //array10
-    $tenlw = "tenLetterWords.txt";
-
-    $openTen = @fopen($tenlw, 'r'); 
-
-    if ($openTen) {
-    $array10 = explode(", ", fread($openTen, filesize($tenlw)));
-    }
-
-    //array11
-    $elevenlw = "11letwords.txt";
-
-    $openEleven = @fopen($elevenlw, 'r');
-
-    if ($openEleven) {
-        $array11 = explode(", ", fread($openEleven, filesize($elevenlw)));
-    }
-
-
-    //big arrays now!
-
-
-    //one
     $bigarray1 = $array1;
-
-    //two
-    $twolw = "big2lets.txt";
-
-    $openTwo = @fopen($twolw, 'r'); 
-
-    if ($openTwo) {
-    $bigarray2 = explode(", ", fread($openTwo, filesize($twolw)));
-    }
-
-    //three
-    $threelw = "big3lets.txt";
-
-    $openThree = @fopen($threelw, 'r'); 
-
-    if ($openThree) {
-    $bigarray3 = explode(", ", fread($openThree, filesize($threelw)));
-    }
-
-    //four
-    $fourlw = "big4lets.txt";
-
-    $openFour = @fopen($fourlw, 'r'); 
-
-    if ($openFour) {
-    $bigarray4 = explode(", ", fread($openFour, filesize($fourlw)));
-    }
-
-    //five
-    $fivelw = "big5lets.txt";
-
-    $openFive = @fopen($fivelw, 'r'); 
-
-    if ($openFive) {
-    $bigarray5 = explode(", ", fread($openFive, filesize($fivelw)));
-    }
-
-    //six
-    $sixlw = "big6lets.txt";
-
-    $openSix = @fopen($sixlw, 'r'); 
-
-    if ($openSix) {
-    $bigarray6 = explode(", ", fread($openSix, filesize($sixlw)));
-    }
-
-    //seven
-    $sevenlw = "big7lets.txt";
-
-    $openSeven = @fopen($sevenlw, 'r'); 
-
-    if ($openSeven) {
-    $bigarray7 = explode(", ", fread($openSeven, filesize($sevenlw)));
-    }
-
-    //eight
-    $eightlw = "big8lets.txt";
-
-    $openEight = @fopen($eightlw, 'r'); 
-
-    if ($openEight) {
-    $bigarray8 = explode(", ", fread($openEight, filesize($eightlw)));
-    }
-
-    //nine
-    $ninelw = "big9lets.txt";
-
-    $openNine = @fopen($ninelw, 'r'); 
-
-    if ($openNine) {
-    $bigarray9 = explode(", ", fread($openNine, filesize($ninelw)));
-    }
-
-    //ten
-    $tenlw = "big10lets.txt";
-
-    $openTen = @fopen($tenlw, 'r'); 
-
-    if ($openTen) {
-    $bigarray10 = explode(", ", fread($openTen, filesize($tenlw)));
-    }
-
-    //eleven
-    $elevenlw = "big11lets.txt";
-
-    $openEleven = @fopen($elevenlw, 'r'); 
-
-    if ($openEleven) {
-    $bigarray11 = explode(", ", fread($openEleven, filesize($elevenlw)));
-    }
+    $bigArray2 = setArray("big2lets.txt");
+    $bigArray3 = setArray("big3lets.txt");
+    $bigArray4 = setArray("big4lets.txt");
+    $bigArray5 = setArray("big5lets.txt");
+    $bigArray6 = setArray("big6lets.txt");
+    $bigArray7 = setArray("big7lets.txt");
+    $bigArray8 = setArray("big8lets.txt");
+    $bigArray9 = setArray("big9lets.txt");
+    $bigArray10 = setArray("big10lets.txt");
+    $bigArray11 = setArray("big11lets.txt");
 
 
-//
-//lotsa lil tests
-
-    // //should return nova
-    // echo findWord("....", "553648c8088b83c091b0be46f9ee7498");
-
-    // //should return witch
-    // findWord(".....", "5848bf342b608bc7fbf5231a63859607");
-
-    //should return general anesthesia
-    // echo findWord("....... ..........", "75d3e0fefaaeb1dbfd9570e9dd347c3a");
-
-    // //should return rob federal reserve
-    // findWord("... ....... .......", "38fe9cf284ddf6fd002527ea350ed6c7");
-
-    // echo combinationsTwo(4, "", "cf53968a56f8781b833b7c20c966343a", 2);
-
-
-//
-//takes in dot versions of words and the hash, then translates the information to call the appropriate function
+// takes in dot versions of words and the hash, then translates the information to call the appropriate function
+// every letter will be written as a dot by the user (with spaces intact)
 function findWord($word, $hash) {
     $numSpaces = substr_count($word, ' ');
     $functionName = "findWord" . $numSpaces;
@@ -310,7 +126,7 @@ function combinationsTwo($numLetters, $curr, $hash, $fwlength) {
     return;
 }
 
-//one word (0 spaces)
+// one word (0 spaces)
 function findWord0($hash, $array, $numChars, $bigArray) {
     for ($i=0; $i<count($array); $i++) {
         if (md5(strtoupper($array[$i])) == $hash) {
@@ -350,7 +166,7 @@ function findWord1($hash, $list1, $list2, $biglist1, $biglist2, $numChars1, $num
     return;
 }
 
-//three words (2 spaces)
+// three words (2 spaces)
 function findWord2($hash, $list1, $list2, $list3, $biglist1, $biglist2, $biglist3, $numChars1, $numChars2, $numChars3) {
     for ($i=0; $i<count($list1); $i++) {
         for ($j=0; $j<count($list2); $j++) {

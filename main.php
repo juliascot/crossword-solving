@@ -11,7 +11,7 @@ if(isset($_POST["number"]) && isset($_POST["direction"]) && isset($_POST["length
     $direction = $_POST["direction"];
     $length = $_POST["length"];
     $hash = $_POST["hash"];
-    if (null != findWord($length, $hash)) {
+    if (findWord($length, $hash) != null) {
         $length = findWord($length, $hash);
     }
 
