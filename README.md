@@ -1,5 +1,7 @@
 # crossword-solving
-all files for the Daniel crossword solver
+This is a service built to crack my friend Daniel's hash-based crosswords using word lists to reverse the hashes, user input to figure out the answers by guessing the message, and a final hash guesser with using the information obtained from the previous step.
+
+Dependencies: PHP
 
 Start by opening the main.php. Enter in the information from the example crossword html file (hashes in source code) and example pdf (lengths of words). It may take 
 up to five minutes for the guesser to go through all of the word lists for any given word.
